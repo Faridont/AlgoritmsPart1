@@ -43,6 +43,7 @@ public class Deque<Item> implements Iterable<Item> {
             first.item = item;
             first.next = null;
             first.prev = null;
+            last = first;
         }
         else {
             Node oldfirst = first;
@@ -50,6 +51,10 @@ public class Deque<Item> implements Iterable<Item> {
             first.item = item;
             first.next = oldfirst;
             first.prev = null;
+            
+            if (last == null) {
+                last = oldfirst;
+            }
         }
 
         size++;
@@ -59,16 +64,19 @@ public class Deque<Item> implements Iterable<Item> {
     public void addLast(Item item) {
         if (item == null) throw new IllegalArgumentException();
 
-        Node oldlast = last;
-        last = new Node();
-        last.item = item;
-        last.next = null;
-        last.prev = oldlast;
-
         if (isEmpty()) {
+            last = new Node();
+            last.item = item;
+            last.next = null;
+            last.prev = null;
             first = last;
         }
         else {
+            Node oldlast = last;
+            last = new Node();
+            last.item = item;
+            last.next = null;
+            last.prev = oldlast;
             oldlast.next = last;
         }
 
@@ -81,6 +89,10 @@ public class Deque<Item> implements Iterable<Item> {
 
         Item item = first.item;
         first = first.next;
+        if (first == null) {
+            last = null;
+        }
+
         size--;
 
         return item;
@@ -89,10 +101,19 @@ public class Deque<Item> implements Iterable<Item> {
     // remove and return the item from the back
     public Item removeLast() {
         if (isEmpty()) throw new NoSuchElementException();
-        
+
         Item item = last.item;
-        last = last.prev;
-        last.next = null;
+        if (last.prev == null) {
+            last = first;
+        }
+        else {
+            last = last.prev;
+        }
+
+        if (last != null) {
+            last.next = null;
+        }
+
         size--;
 
         return item;

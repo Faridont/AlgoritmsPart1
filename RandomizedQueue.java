@@ -45,15 +45,15 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public Item dequeue() {
         if (isEmpty()) throw new NoSuchElementException();
 
-        int randomId = StdRandom.uniformInt(0, size - 1);
-        StdOut.println("RandomId: " + randomId);
+        int randomId = StdRandom.uniformInt(size);
         Item item = S[randomId];
+        // StdOut.println("RandomId: " + randomId);
         for (int i = randomId; i < size; i++) {
-            S[i] = S[i - 1];
+            S[i] = S[i + 1];
         }
 
         size--;
-
+        // StdOut.println("Size: " + size);
         if (size > 0 && size == S.length / 4) {
             resize(S.length / 2);
         }
@@ -135,7 +135,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         StdOut.println("Dequeue...");
         for (int i = 0; i < elCount; i++) {
-            queue.dequeue();
+            int item = queue.dequeue();
+            StdOut.println("Dequeue random element: " + item);
         }
         StdOut.println("Queue size: " + queue.size);
     }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="" />
+    <list default="true" id="c1e4f978-b3bd-4ae1-84e9-9e1170bce808" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BruteCollinearPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/BruteCollinearPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +36,9 @@
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -82,18 +89,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/f_shaikhutdinov/Projects/AlgoritmsPart1&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Deque">
-    <configuration name="Deque" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Deque" />
-      <module name="Algorithms, Part I" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Permutation" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Permutation" />
-      <module name="Algorithms, Part I" />
-      <option name="PROGRAM_PARAMETERS" value="4" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="RandomizedQueue" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="RandomizedQueue" />
       <module name="Algorithms, Part I" />

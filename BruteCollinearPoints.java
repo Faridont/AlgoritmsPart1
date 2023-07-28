@@ -38,6 +38,7 @@ public class BruteCollinearPoints {
     private LineSegment[] getLineSegments(Point[] points) {
         int N = points.length;
         List<LineSegment> ls = new ArrayList<LineSegment>();
+
         for (int i = 0; i < N; i++) {
             Point first = points[i];
             for (int j = 0; j < N; j++) {
@@ -45,29 +46,44 @@ public class BruteCollinearPoints {
                 Point second = points[j];
                 for (int k = 0; k < N; k++) {
                     if (k == j || k == i) continue;
+
                     Point third = points[k];
+                    double firstSlope = first.slopeTo(second);
+                    double secondSlope = second.slopeTo(third);
+
+                    if (firstSlope != secondSlope) continue;
+
                     for (int l = 0; l < N; l++) {
                         if (l == k || l == j || l == i) continue;
+
                         Point fourth = points[l];
-                        double firstSlope = first.slopeTo(second);
-                        double secondSlope = second.slopeTo(third);
                         double thirdSlope = third.slopeTo(fourth);
 
-                        boolean isSloped = firstSlope == secondSlope && secondSlope == thirdSlope;
-                        if (isSloped) {
-                            ls.add(new LineSegment(first, fourth));
+                        if (secondSlope == thirdSlope) {
+                            LineSegment nls = new LineSegment(first, fourth);
+                            if (!ls.contains(nls)) {
+                                ls.add(nls);
+                            }
+
                         }
                     }
                 }
             }
         }
 
-        return (LineSegment[]) ls.toArray();
+        LineSegment[] result = new LineSegment[ls.size()];
+        return ls.toArray(result);
     }
 
     // the number of line segments
     public int numberOfSegments() {
         return this.lineSegments.length;
+    }
+
+    private void drawPoints(Point[] points) {
+        for (int i = 0; i < points.length; i++) {
+            points[i].draw();
+        }
     }
 
     // the line segments
